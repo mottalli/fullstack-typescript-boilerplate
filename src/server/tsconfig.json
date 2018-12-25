@@ -2,11 +2,9 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "outDir": "lib",
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "jsx": "react",
     "sourceMap": true
   }
 }

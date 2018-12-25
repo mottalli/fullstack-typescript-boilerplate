@@ -1,5 +1,29 @@
 import React from "react";
 
-const App: React.SFC = () => <div>This is a React component</div>;
+type AppState = {
+  body: string;
+};
 
-export default App;
+export default class App extends React.Component<{}, AppState> {
+  state = {
+    body: "Nothing so far :( ..."
+  };
+
+  componentDidMount() {
+    fetch("/api/hello")
+      .then(res => res.json())
+      .then(({ body }: { body: string }) => this.setState({ body }));
+  }
+
+  render() {
+    const { body } = this.state;
+
+    return (
+      <div>
+        This is a React component. Foobar!
+        <br />
+        Server sez: {body}
+      </div>
+    );
+  }
+}
